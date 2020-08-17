@@ -75,6 +75,7 @@ endif
 
 PYTHON      ?= python
 PYTHON_PREFIX_ARG ?= --prefix="$(prefix)"
+PYTHONHOME = /usr
 # The above requires that prefix contains *no spaces*. This variable is here
 # to permit the user to set PYTHON_PREFIX_ARG to '' to workaround this bug:
 #  https://bugs.launchpad.net/ubuntu/+bug/362570
@@ -173,6 +174,9 @@ CFLAGS += -std=gnu99
 
 CFLAGS += -Wall -Wstrict-prototypes
 
+CFLAGS += --sysroot=$(SDKTARGETSYSROOT)
+APPEND_CFLAGS +=  -I$(SDKTARGETSYSROOT)/usr/include/
+
 $(call cc-option-add,HOSTCFLAGS,HOSTCC,-Wdeclaration-after-statement)
 $(call cc-option-add,CFLAGS,CC,-Wdeclaration-after-statement)
 $(call cc-option-add,CFLAGS,CC,-Wno-unused-but-set-variable)
@@ -187,6 +191,8 @@ LDFLAGS += -Wl,-rpath,$(libdir)
 endif
 APPEND_LDFLAGS += $(foreach i, $(APPEND_LIB), -L$(i))
 APPEND_CFLAGS += $(foreach i, $(APPEND_INCLUDES), -I$(i))
+
+LDFLAGS =  --sysroot=$(SDKTARGETSYSROOT) -L$(SDKTARGETSYSROOT)/usr/lib
 
 EMBEDDED_EXTRA_CFLAGS := -nopie -fno-stack-protector -fno-stack-protector-all
 EMBEDDED_EXTRA_CFLAGS += -fno-exceptions -fno-asynchronous-unwind-tables

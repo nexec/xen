@@ -9,6 +9,9 @@ headers := $(patsubst %, %.h, $(architectures))
 .PHONY: all clean distclean check-headers
 all: $(headers) check-headers
 
+PYTHON=/usr/bin/python3
+PYTHONHOME=/usr
+
 clean:
 	rm -f $(headers)
 	rm -f checker checker.c

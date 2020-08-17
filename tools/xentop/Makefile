@@ -23,7 +23,7 @@ LDLIBS += $(LDLIBS_libxenstat) $(CURSES_LIBS) $(TINFO_LIBS) $(SOCKET_LIBS) -lm
 CFLAGS += -DHOST_$(XEN_OS)
 
 # Include configure output (config.h)
-CFLAGS += -include $(XEN_ROOT)/tools/config.h
+CFLAGS += -include $(XEN_ROOT)/tools/config.h $(APPEND_CFLAGS)
 LDFLAGS += $(APPEND_LDFLAGS)
 
 .PHONY: all
