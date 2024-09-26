@@ -73,7 +73,7 @@ static void libxl__device_from_pci(libxl__gc *gc, uint32_t domid,
                                    libxl__device *device)
 {
     device->backend_devid = 0;
-    device->backend_domid = 0;
+    device->backend_domid = 1;
     device->backend_kind = LIBXL__DEVICE_KIND_PCI;
     device->devid = 0;
     device->domid = domid;

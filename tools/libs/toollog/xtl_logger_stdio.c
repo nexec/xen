@@ -51,12 +51,13 @@ static void stdiostream_vmessage(xentoollog_logger *logger_in,
                                  va_list al) {
     xentoollog_logger_stdiostream *lg = (void*)logger_in;
 
-    if (level < lg->min_level)
-        return;
+//    if (level < lg->min_level)
+//        return;
 
     progress_erase(lg);
 
-    if (lg->flags & XTL_STDIOSTREAM_SHOW_DATE) {
+//    if (lg->flags & XTL_STDIOSTREAM_SHOW_DATE) {
+    {
         struct tm lt_buf;
         time_t now = time(0);
         struct tm *lt= localtime_r(&now, &lt_buf);

@@ -2105,13 +2105,13 @@ static int libxl__vfb_and_vkb_from_hvm_guest_config(libxl__gc *gc,
     libxl_device_vfb_init(vfb);
     libxl_device_vkb_init(vkb);
 
-    vfb->backend_domid = 0;
+    vfb->backend_domid = 1;
     vfb->devid = 0;
     vfb->vnc = b_info->u.hvm.vnc;
     vfb->keymap = b_info->u.hvm.keymap;
     vfb->sdl = b_info->u.hvm.sdl;
 
-    vkb->backend_domid = 0;
+    vkb->backend_domid = 1;
     vkb->devid = 0;
 
     return 0;

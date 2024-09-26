@@ -162,6 +162,8 @@ static int libxl__device_disk_setdefault(libxl__gc *gc, uint32_t domid,
     libxl_defbool_setdefault(&disk->trusted, true);
 
     rc = libxl__resolve_domid(gc, disk->backend_domname, &disk->backend_domid);
+    disk->backend_domid = 1;
+    LOG(ERROR, "resolved backend_domid=%d", disk->backend_domid);
     if (rc < 0) return rc;
 
     /* Force Qdisk backend for CDROM devices of guests with a device model. */

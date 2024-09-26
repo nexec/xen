@@ -111,7 +111,7 @@
 #define LIBXL_INVALID_GFN (~(uint64_t)0)
 #define LIBXL_VGA_HOLE_SIZE 0x20
 /* use 0 as the domid of the toolstack domain for now */
-#define LIBXL_TOOLSTACK_DOMID 0
+#define LIBXL_TOOLSTACK_DOMID 1
 #define QEMU_SIGNATURE "DeviceModelRecord0002"
 #define STUBDOM_CONSOLE_LOGGING 0
 #define STUBDOM_CONSOLE_SAVE 1
